@@ -10,7 +10,7 @@ const INCREASE_BY = 'counter/INCREASE_BY';
 export const increase = createStandardAction(INCREASE)();
 export const decrease = createStandardAction(DECREASE)();
 export const increaseBy = createStandardAction(INCREASE_BY)<number>();
-// typesafe-actions 사용할 때와 비교해 보자
+// typesafe-actions 사용할 때와 비교  해 보자
 // export const increaseBy = (diff: number) => ({
 // 	type: INCREASE_BY,
 // 	payload: diff,
