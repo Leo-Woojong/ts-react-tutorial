@@ -3,14 +3,14 @@ import GithubUsernameForm from '../compopnents/GithubUsernameForm';
 import GithubProfileInfo from '../compopnents/GithubProfileInfo';
 import { useSelector, useDispatch } from 'react-redux';
 import { RootState } from '../modules';
-import { getUserProfileThunk } from '../modules/github';
+import { getUserProfileAsync } from '../modules/github';
 
 function GithubProfileLoader() {
 	const { data, loading, error } = useSelector((state: RootState) => state.github.userProfile);
 	const dispatch = useDispatch();
 
 	const onSubmitUsername = (username: string) => {
-		dispatch(getUserProfileThunk(username));
+		dispatch(getUserProfileAsync.request(username));
 	}
 
 	return (

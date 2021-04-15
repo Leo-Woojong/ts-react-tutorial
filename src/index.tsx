@@ -5,10 +5,15 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
-import rootReducer from './modules'
-import Thunk from 'redux-thunk';
+import rootReducer, { rootSaga } from './modules'
+import createSagaMiddleware from 'redux-saga';
 
-const store = createStore(rootReducer, applyMiddleware(Thunk));
+// createSagaMiddleware를 실행
+const sagaMiddleware = createSagaMiddleware();
+ 
+const store = createStore(rootReducer, applyMiddleware(sagaMiddleware));
+// rootSaga 실행
+sagaMiddleware.run(rootSaga)
 
 ReactDOM.render(
   <React.StrictMode>
